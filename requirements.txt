@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 asgiref==3.3.1
 Django==3.1.4
 pytz==2020.4
 sqlparse==0.4.1
+=======
+pip freeze
+lol caca c cool
+>>>>>>> b9cc5a99e0d4b06ccaa9435b2a4e4c92a3f2a643
