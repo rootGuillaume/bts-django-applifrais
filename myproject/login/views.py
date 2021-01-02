@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from . import decorators
 
 # Function to return User login view
 #def loginUserView(request):
@@ -11,8 +12,7 @@ from django.contrib.auth import authenticate, login, logout
 # Function to login User
 def loginUser(request):
     if request.user.is_authenticated:
-        print("connecté")
-        #return redirect('suivi:suivi')
+        return redirect('suivi:suivi-visiteur')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -21,8 +21,11 @@ def loginUser(request):
 
             if user is not None:
                 login(request, user)
-                print('connecté')
-                #return redirect('suivi:suivi')
+
+#                if groupRequired('Visiteur'):
+#                    return redirect('suivi:suivi-visiteur')
+#                elif groupRequired('Comptable'):
+#                    return redirect('suivi:suivi-comptable')
             else:
                 messages.warning(request, 'Matricule ou Mot de passe incorrect')
 

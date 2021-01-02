@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'login',
+    'suivi',
+    'fichefrais',
 ]
 
 AUTH_USER_MODEL = 'account.User'

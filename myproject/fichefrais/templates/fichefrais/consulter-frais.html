@@ -1,0 +1,84 @@
+{% extends 'fichefrais/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="section">
+    <div class="container">
+      <div class="columns is-mobile is-centered">
+        <div class="column is-7">
+          <div class="field">
+            <!-- Title -->
+            <h1 class="title is-primary">VALIDATION DE FRAIS ENGAGES</h1>
+            <!-- Visiteur -->
+            <label class="label">Matricule</label>
+            <div class="control">
+              <input class="input" value="{{request.user.matricule}}" disabled>
+            </div>
+            <br>
+            <label class="label">Nom</label>
+            <div class="control">
+              <input class="input" value="{{request.user.nom}}" disabled>
+            </div>
+            <br>
+            <label class="label">Mois</label>
+
+            <div class="control">
+              <input class="input" type="text" disabled>
+            </div>
+            <br>
+            <!-- Frais Générique -->
+            <h2 class="subtitle">Déclaration des Frais</h2>
+            <hr>
+            <table class="table is-bordered">
+              <!-- En-tête -->
+              <thead>
+                <th>Frais Forfaitaires</th>
+                <th>Quantité</th>
+                <th>Montant unitaire</th>
+                <th>Total</th>
+              </thead>
+              <!-- Body -->
+
+              {% for frais in fraisArray %}
+
+              <tbody>
+                <td>{{ frais.libelle }}</td>
+                <td><input id="quantite-nuitee" onchange="afficherTotalNuitee()" class="input" type="" placeholder="1"></td>
+                <td><input class="input" type="text" placeholder="{{ frais.montant }}" disabled></td>
+                <td><p id="total-nuitee"></p></td>
+              </tbody>
+
+              {% endfor %}
+
+            </table>
+            <!-- Autre Frais-->
+            <hr>
+            <table class="table is-bordered">
+              <thead>
+                <th>Date</th>
+                <th>Libellé</th>
+                <th>Montant</th>
+              </thead>
+              <tbody>
+                <td><input class="input" type="" placeholder="01/01/20"></td>
+                <td><input class="input" type="" placeholder="Description"></td>
+                <td><input class="input" type="" placeholder="00,00€"></td>
+              </tbody>
+            </table>
+            <br>
+            <!-- Bouttons | Upload documents & Signature + Valider -->
+            <div class="field is-grouped is-grouped-centered">
+              <div class="buttons">
+                <button class="button is-light">Consulter Justificatif</button>
+                <button class="button is-danger">Refuser</button>
+                <button class="button is-primary">Valider</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

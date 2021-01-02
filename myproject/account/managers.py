@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Group
 
 
 # CUSTOM || Function to raise error
@@ -34,6 +34,9 @@ class UserAdminCreationForm(BaseUserManager):
 
         user.set_password(password)
         user.save(using=self._db)
+
+        group = Group.objects.get(name='Visiteur')
+        user.groups.add(group)
 
         return user
 

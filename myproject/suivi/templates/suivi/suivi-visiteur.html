@@ -1,0 +1,61 @@
+{% extends 'suivi/main.html'%}
+
+  {% block content %}
+    <section class="section">
+      <div class="container">
+
+        <div class="columns is-mobile is-centered">
+          <div class="column is-12">
+            <div class="field">
+
+              <!-- Title -->
+              <h1 class="title is-primary">Consulter fiches frais</h1>
+
+              <hr><br>
+
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                  <th>Visiteur</th>
+                  <th>Mois</th>
+                  <th>Date Modif</th>
+                  <th>Nombre Justificatif</th>
+                  <th>Montant</th>
+                  <th>Etat</th>
+                  <th>Modifier</th>
+                  <th>Supprimer</th>
+                </thead>
+
+              <!--  <tbody>
+                  {% for fiche in ficheArray %}
+                    <tr>
+                      <td>{{visiteurId}}</td>
+                      <td>{{fiche.mois}}</td>
+                      <td>{{fiche.dateModif}}</td>
+                      <td>{{fiche.justificatif}}</td>
+                      <td>{{fiche.montantValide}}</td>
+                      <td>{{fiche.idEtat}}</td>
+                      <td>
+                        <a class="button is-primary" href="{% url 'fichefrais:consulter-frais' %}" target="_blank"><strong>Mod</strong></a>
+                      </td>
+                      <td>
+                        <div class="buttons">
+                          <a class="button is-danger"><strong>Supprimer</strong></a>
+                        </div>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>-->
+
+
+              </table>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+  </body>
+  {% endblock %}
