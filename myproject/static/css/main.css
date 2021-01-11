@@ -9,6 +9,9 @@ html {
   background-color: var(--var-main-color);
 }
 
+.column {
+  background-color: var(--var-white-color);
+}
 
 /* ====== Field ====== */
 .field {

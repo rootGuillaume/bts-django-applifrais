@@ -14,8 +14,8 @@
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="">Tableau de bord</a>
-        <a class="navbar-item" href="">Nouvel Utilisateur</a>
+        <a class="navbar-item" href="{% url 'suivi:suivi-visiteur' %}">Tableau de bord</a>
+        <a class="navbar-item" href="{% url 'fichefrais:nouveau' %}">Nouveau Frais</a>
       </div>
       <div class="navbar-end">
         <div class="navbar-item">Bonjour, {{request.user.prenom}}</div>
