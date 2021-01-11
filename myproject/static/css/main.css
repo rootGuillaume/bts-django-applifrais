@@ -1,0 +1,59 @@
+:root {
+  --var-description-color: #878787;
+  --var-main-color: #ebedf5;
+  --var-white-color: #ffffff;
+}
+
+/* ====== html ====== */
+html {
+  background-color: var(--var-main-color);
+}
+
+.column {
+  background-color: var(--var-white-color);
+}
+
+/* ====== Field ====== */
+.field {
+  background-color: var(--var-white-color);
+  padding: 2em;
+}
+
+.control {
+  width: 100%;
+}
+
+
+/* ====== Field ====== */
+.table {
+  width: 100%;
+}
+
+/* ====== Description ====== */
+.expense-description p, .expense-description li {
+  color: var(--var-description-color);
+  font-weight: 100!important;
+}
+
+/* ====== Navbar ====== */
+header .navbar {
+  margin-bottom: 2em;
+}
+
+
+/* ====== Navbar ====== */
+.table {
+  width: 100%;
+}
+
+
+/* ================================================================================= */
+/* ====== Nouvelle Fiche Frais | fichefrais/nouvelle-fiche-frais.html ====== */
+
+
+
+/* ================================================================================= */
+/* ====== Nouvelle Profile | profile/new-profile.html ====== */
+.form-profile .control {
+  width: 100%;
+}

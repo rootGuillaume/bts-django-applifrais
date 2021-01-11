@@ -1,0 +1,51 @@
+{% extends 'login/main.html' %}
+{% load static %}
+
+{% block content %}
+  <section class="section">
+    <div class="container">
+      <div class="columns is-mobile is-centered">
+        <div class="column-is-half">
+
+            <!-- Fields -->
+            <div class="connexion-form">
+              <form method="post" action="">
+                {% csrf_token %}
+            <!--<div>
+              <figure class="image is-128x128 is-justify-content-center">
+                <img src="{% static 'images/gsb-logo.jpg' %}">
+              </figure>
+            </div>-->
+
+            <div class="field">
+              <h1 class="title">Gestion de Frais</h1>
+            </div>
+            <br>
+            <div class="field">
+              <label class="label">Matricule</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Numéro de matricule" name='username'>
+              </div>
+            </div>
+            <br>
+            <div class="field">
+              <label class="label">Mot de passe</label>
+              <div class="control">
+                <input class="input" type="password" placeholder="********" name='password'>
+              </div>
+            </div>
+            <br>
+            <input class="button is-primary is-medium is-fullwidth" type="submit" value="Se connecter">
+            </form>
+            {% for message in messages %}
+            <br>
+            <div class="notification is-danger">
+              {{message}}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

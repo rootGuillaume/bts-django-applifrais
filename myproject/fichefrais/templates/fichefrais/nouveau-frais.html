@@ -1,0 +1,130 @@
+{% extends 'fichefrais/main.html' %}
+
+{% block content %}
+
+<section class="section">
+     <div class="container">
+       <div class="columns is-mobile is-centered">
+         <div class="column is-7">
+
+           <div class="field">
+             <form action='' method='POST'>
+
+               {% csrf_token %}
+
+             <!-- Title -->
+             <h1 class="title is-primary">ETAT DE FRAIS ENGAGES</h1>
+             <h2 class="subtitle"><em>A retourner accompagné des justificatifs au plus tard le 10 du mois qui suit l’engagement des frais</em></h2>
+
+             <!-- Visiteur -->
+             <label class="label">Matricule</label>
+             <div class="control">
+               <input class="input" type="text" value="{{request.user.matricule}}" disabled>
+             </div>
+             <br>
+             <label class="label">Nom</label>
+             <div class="control">
+               <input class="input" type="text" value="{{request.user.nom}}" disabled>
+             </div>
+             <br>
+             <label class="label">Mois</label>
+
+             <div class="control">
+               <p class="control has-icons-left">
+                 <span class="select is-fullwidth">
+                   {{fiche_frais.mois}}
+                 </span>
+                 <span class="icon is-small is-left">
+                   <i class="fas fa-globe"></i>
+                 </span>
+               </p>
+             </div>
+
+
+             <br>
+             <!-- Frais Générique -->
+             <h2 class="subtitle">Déclaration des Frais</h2>
+             <hr>
+             <table class="table is-bordered">
+               <!-- En-tête -->
+               <thead>
+                 <th>Frais Forfaitaires</th>
+                 <th>Quantité</th>
+                 <th>Montant unitaire</th>
+                 <th>Total</th>
+               </thead>
+               <!-- Body -->
+
+               {% for frais in fraisArray %}
+
+               <tbody>
+                 <td>{{ frais.libelle }}</td>
+                 <td><input id="quantite-nuitee" class="input" type="" placeholder="1"></td>
+                 <td><input class="input" type="text" value="{{ frais.montant }}" disabled></td>
+                 <td><input class="input" type="text" value="" disabled></td>
+               </tbody>
+
+               {% endfor %}
+
+             </table>
+             <!-- Autre Frais-->
+             <hr>
+             <table class="table is-bordered">
+               <thead>
+                 <th>Date</th>
+                 <th>Libellé</th>
+                 <th>Montant</th>
+               </thead>
+               <tbody>
+                 <td><input class="input" type="" placeholder="01/01/20"></td>
+                 <td><input class="input" type="" placeholder="Description"></td>
+                 <td><input class="input" type="" placeholder="00,00€"></td>
+               </tbody>
+             </table>
+             <br>
+             <!-- Bouttons | Upload documents & Signature + Valider -->
+             <div class="file has-name is-fullwidth is-medium">
+               <label class="file-label">
+                 <input class="file-input" type="file" name="resume">
+                 <span class="file-cta">
+                   <span class="file-icon">
+                     <i class="fas fa-upload"></i>
+                   </span>
+                   <span class="file-label">
+                     Joindre un justificatif…
+                   </span>
+                 </span>
+                 <span class="file-name">
+
+                 </span>
+               </label>
+             </div>
+             <br>
+             <button class="button is-primary is-medium is-fullwidth" type="submit">Valider et signer</button>
+             <br><hr><br>
+             <!-- Signature -->
+             <div class="expense-description">
+               <p>1. Les frais forfaitaires doivent être justifiés par une facture acquittée faisant apparaître le montant de la TVA.
+                 Ces documents ne sont pas à joindre à l’état de frais mais doivent être conservés pendant trois années. Ils
+                 peuvent être contrôlés par le délégué régional ou le service comptable.</p>
+               <p>2. Tarifs en vigueur au 01/09/2010.</p>
+               <p>3. Prix au kilomètre selon la puissance du véhicule déclaré auprès des services comptables.
+                 <ul>
+                   <li>Véhicule 4CV Diesel) 0.52 € / Km</li>
+                   <li>(Véhicule 5/6CV Diesel) 0.58 € / Km</li>
+                   <li>(Véhicule 4CV Essence) 0.62 € / Km</li>
+                   <li>(Véhicule 5/6CV Essence) 0.67 € / Km</li>
+                 </ul>
+               </p>
+               <p>4. Tout frais « hors forfait » doit être dûment justifié par l’envoi d’une facture acquittée faisant apparaître le
+                 montant de TVA.</p>
+             </div>
+             <br>
+           </form>
+         </div>
+         </div>
+       </div>
+     </div>
+   </section>
+
+{% endblock %}
