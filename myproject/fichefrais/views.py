@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from .forms import *
+from account.models import User
 
 # Create your views here.
 def nouveauFraisView(request):
@@ -14,9 +15,13 @@ def nouveauFraisView(request):
     return render(request, 'fichefrais/nouveau-frais.html', context)
 
 
-def consulterFraisView(request):
-    fraisArray = FraisForfait.objects.all()
+def consulterFraisView(request, id):
+    idFiche = FicheFrais.objects.get(idFicheFrais=id)
+    #matriculeFiche = idFiche.objects.get(matricule)
+    #print(matriculeFiche)
+    #idUser = idFiche.objects.get(matricule)
+
     context = {
-        'fraisArray':fraisArray,
+        'fiche':idFiche,
     }
     return render(request, 'fichefrais/consulter-frais.html', context)

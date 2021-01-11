@@ -5,5 +5,5 @@ app_name = 'fichefrais'
 
 urlpatterns = [
     path('nouveau/', views.nouveauFraisView, name='nouveau'),
-    path('consulter/', views.consulterFraisView, name='consulter'),
+    path('consulter/<int:id>/', views.consulterFraisView, name='consulter'),
 ]
